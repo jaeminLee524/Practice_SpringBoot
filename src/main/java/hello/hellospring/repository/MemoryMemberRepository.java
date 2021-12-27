@@ -1,7 +1,6 @@
 package hello.hellospring.repository;
 
-import hello.hellospring.doamin.Member;
-import org.springframework.stereotype.Repository;
+import hello.hellospring.domain.Member;
 
 import java.util.ArrayList;
 import java.util.HashMap;

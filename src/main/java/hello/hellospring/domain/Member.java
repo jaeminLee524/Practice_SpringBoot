@@ -1,4 +1,4 @@
-package hello.hellospring.doamin;
+package hello.hellospring.domain;
 
 public class Member {
     private Long id;
