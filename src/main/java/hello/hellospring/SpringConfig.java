@@ -13,7 +13,7 @@ import javax.sql.DataSource;
 public class SpringConfig {
 
     // spring이 dataSource를 만들어줌
-    private DataSource dataSource;
+    /*private DataSource dataSource;
 
     private EntityManager em;
 
@@ -21,18 +21,27 @@ public class SpringConfig {
     public SpringConfig(EntityManager em, DataSource dataSource) {
         this.em = em;
         this.dataSource = dataSource;
+    }*/
+
+    private final MemberRepository memberRepository;
+
+    //SpringDataJpa를 injection받도록
+    @Autowired
+    public SpringConfig(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
     }
 
     @Bean
     public MemberService memberService() {
-        return new MemberService(memberRepository());
+        return new MemberService(memberRepository);
     }
 
-    @Bean
-    public MemberRepository memberRepository() {
+//    @Bean
+//    public MemberRepository memberRepository() {
 //        return new MemoryMemberRepository();
 //        return new JdbcMemberRepository(dataSource);
 //        return new JdbcTemplateMemberRepository(dataSource);
-        return new JpaMemberRepository(em);
-    }
+//        return new JpaMemberRepository(em);
+//    }
+
 }
